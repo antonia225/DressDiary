@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDClothingItem" representedClassName="CDClothingItem" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="decolteuTop" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="lungimePants" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="manecaTop" optional="YES" attributeType="String"/>
+        <attribute name="materials" optional="YES" attributeType="String"/>
+        <attribute name="shoeSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="taliePants" optional="YES" attributeType="String"/>
+        <attribute name="waterproofJacket" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="outfits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDOutfit" inverseName="items" inverseEntity="CDOutfit"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="clothingItems" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDOutfit" representedClassName="CDOutfit" syncable="YES" codeGenerationType="class">
+        <attribute name="dateAdded" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDClothingItem" inverseName="outfits" inverseEntity="CDClothingItem"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="outfits" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES" codeGenerationType="class">
+        <attribute name="darkMode" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastLoginDate" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="streak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="clothingItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDClothingItem" inverseName="owner" inverseEntity="CDClothingItem"/>
+        <relationship name="outfits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDOutfit" inverseName="owner" inverseEntity="CDOutfit"/>
+    </entity>
+</model>
