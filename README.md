@@ -59,7 +59,7 @@ Sincronizarea se face prin conversii către structuri Swift (`ClothingItem`, `Sa
 
 ### Instalare
 ```bash
-git clone https://github.com/<owner>/DressDiary.git
+git clone https://github.com/antonia225/DressDiary.git
 cd DressDiary
 open DressDiary.xcodeproj
 ```
